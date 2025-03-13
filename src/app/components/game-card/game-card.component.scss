@@ -1,0 +1,50 @@
+.game-card-wrapper {
+    width: 13vw;
+    height: 36vh;
+    overflow: hidden;
+    .game-card-image {
+        width: 13vw;
+        height: 32vh;
+        object-fit: cover;
+    }
+    .game-card-description-wrapper {
+        height: 3vh;
+        overflow: hidden;
+        .game-card-title {
+            font-family: system-ui;
+            font-weight: 600;
+            margin-bottom: 1vh;
+        }
+        .game-card-short-description {
+            font-family: system-ui;
+        }
+
+    }
+}
+
+.game-card-wrapper-expanded {
+    width: 26vw;
+    height: 44vh;
+    overflow: hidden;
+    .game-card-image {
+        width: 26vw;
+        height: 30vh;
+        object-fit: cover;
+        padding-bottom: 1vh;
+        border-radius: 2%;
+    }
+    .game-card-description-wrapper {
+        height: 8vh;
+        overflow: hidden;
+        .game-card-title {
+            font-family: system-ui;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 1vh;
+        }
+        .game-card-short-description {
+            font-family: system-ui;
+        }
+
+    }
+}
