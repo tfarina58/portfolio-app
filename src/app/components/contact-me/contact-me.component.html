@@ -1,0 +1,22 @@
+<form [formGroup]="contactForm" (submit)="onSubmit()">
+    <div class="contact-wrapper">
+        <div class="input-field-header">
+            <span class="input-field-header">Contact me</span>
+        </div>
+        <div class="input-field-wrapper">
+            <span class="input-field-title">Your name</span>
+            <input class="input-field" type="text" placeholder="John Doe" formControlName="name" (focus)="setFocus('name')" (blur)="setFocus()" />
+        </div>
+        <div class="input-field-wrapper">
+            <span class="input-field-title">Your email</span>
+            <input class="input-field" type="email" placeholder="john.doe@mail.com" formControlName="email" (focus)="setFocus('email')" (blur)="setFocus()" />
+        </div>
+        <div class="input-field-wrapper tall">
+            <span class="input-field-title">Your message</span>
+            <input class="input-field" type="text" placeholder="Hello! :)" formControlName="message" (focus)="setFocus('message')" (blur)="setFocus()" />
+        </div>
+        <div class="input-field-wrapper">
+            <button class="submit" type="submit">Send message</button>
+        </div>
+    </div>
+</form>

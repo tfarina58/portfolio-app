@@ -1,1 +1,7 @@
-<p>header works!</p>
+<div class="header-wrapper">
+    <div class="element-wrapper" *ngFor="let element of elements">
+        <button (click)="click(element)" class="" [ngStyle]="{'width': element.width, 'height': element.height, 'background-color': element.backgroundColor, 'border': element.border}">
+            {{element.title}}
+        </button>
+    </div>
+</div>
