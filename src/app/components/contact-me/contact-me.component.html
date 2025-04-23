@@ -16,7 +16,7 @@
             <input class="input-field" type="text" placeholder="Hello! :)" formControlName="message" (focus)="setFocus('message')" (blur)="setFocus()" />
         </div>
         <div class="input-field-wrapper">
-            <button class="submit" type="submit">Send message</button>
+            <button class="submit" type="submit" [ngClass]="{'submit-valid': (contactForm.valid)}">Send message</button>
         </div>
     </div>
 </form>

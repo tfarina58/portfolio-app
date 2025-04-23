@@ -35,11 +35,16 @@
     }
 
     .submit {
-        border: 2px solid #fb9a40;
+        border: 2px solid #bfbfbf;
         height: 5vh;
         width: 12vw;
         font-size: 0.9rem;
-        color: #fb9a40;
+        color: #bfbfbf;
         background: white;
+    }
+
+    .submit-valid {
+        border: 2px solid #fb9a40;
+        color: #fb9a40;
     }
 }
