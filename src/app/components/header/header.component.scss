@@ -1,11 +1,85 @@
+@import '../../../styles.scss';
+
+
 .header-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    .element-wrapper {
+    padding: 2vh;
+    background: $background-color-light;
+
+    .button-wrapper {
         margin: 0 1vw;
-        font-family: 'Courier New', Courier, monospace;
+
+        .head-button {
+            width: 6vh;;
+            height: 6vh;
+            background-color: #ffffff;
+            border: 2px solid $border-color-light;
+
+            .button-content {
+                font-family: $primary-font;
+                font-weight: 600;
+                font-size: 0.7rem;
+            }
+        }
+
+        .head-button:hover {
+            border: 2px solid $primary-color-light;
+        }
+
+        .button {
+            width: 7vw;
+            height: 3rem;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+            border-radius: 1.5rem;
+            background: $button-default-color-light;
+            background-size: 400%;
+            color: $text-color-light;
+            border: none;
+            cursor: pointer;
+
+            .button-content {
+                font-family: $primary-font;
+                font-weight: 600;
+                font-size: 0.7rem;
+            }
+        }
+
+          
+        .button:hover::before {
+            transform: scaleX(1);
+        }
+          
+        .button-content {
+            position: relative;
+            z-index: 1;
+        }
+          
+        .button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            width: 100%;
+            height: inherit;
+            border-radius: inherit;
+            background: linear-gradient(
+                90deg,
+                $button-hover-gradient-color-1-light 10.8%,
+                $button-hover-gradient-color-2-light 94.3%
+            );
+            transition: all 0.475s;
+        }
+    }
+
+    .w-36 {
+        width: 36vw;
     }
 }

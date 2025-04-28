@@ -21,7 +21,9 @@ export class ContactMeComponent {
     message: new FormControl('', [Validators.required])
   });
 
-  focusedInput: "name" | "email" | "message" | "" = ""; 
+  focusedInput: "name" | "email" | "message" | "" = "";
+
+  constructor() {}
 
   onSubmit(): void {
     if (this.contactForm.invalid) {

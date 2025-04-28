@@ -1,69 +1,37 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HeaderElement } from '../../interfaces/header-button';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonService, Mode } from '../../services/common.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
-
-  @Input() darkMode!: boolean;
+export class HeaderComponent {
 
   @Output() onClick = new EventEmitter<number>();
 
-  elements: HeaderElement[] = [
-    {
-      title: "Information",
-      height: "5vh",
-      width: "5vw",
-      backgroundColor: "#333366",
-      border: "",
-      scrollTo: undefined
-    },
-    {
-      title: "Projects",
-      height: "5vh",
-      width: "5vw",
-      backgroundColor: "#333366",
-      border: "",
-      scrollTo: undefined
-    },
-    {
-      title: "Download CV",
-      height: "5vh",
-      width: "5vw",
-      backgroundColor: "#333366",
-      border: "",
-      scrollTo: undefined
-    },
-    {
-      title: "Contact me",
-      height: "5vh",
-      width: "5vw",
-      backgroundColor: "#333366",
-      border: "",
-      scrollTo: undefined
-    }
-  ];
+  darkMode!: Mode;
+  contactOpened: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(private service: CommonService) {}
 
-  click(target: HeaderElement): void {
-    if (target == undefined) return;
-
-    if (target.title == "Download CV") this.downloadCV();
-    else if (target.title == "Contact me") this.openContactDialog();
-    else this.onClick.emit(target.scrollTo);
+  ngOnInit(): void {
+    this.darkMode = this.service.getMode();
   }
 
   downloadCV(): void {
-
+    /*this.service.downloadCV().subscribe({
+      next: (response: string) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.error('Error fetching string:', error);
+      }
+    });*/
   }
 
   openContactDialog(): void {
-
+    this.contactOpened = true;
   }
 }

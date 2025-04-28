@@ -1,7 +1,28 @@
 <div class="header-wrapper">
-    <div class="element-wrapper" *ngFor="let element of elements">
-        <button (click)="click(element)" class="" [ngStyle]="{'width': element.width, 'height': element.height, 'background-color': element.backgroundColor, 'border': element.border}">
-            {{element.title}}
+    <div class="button-wrapper">
+        <button class="button" (click)="onClick.emit(0)">
+            <span class="button-content">TF</span>
+        </button>
+    </div>
+    <div class="button-wrapper">
+        <button class="button" (click)="onClick.emit(400)">
+            <span class="button-content">Information</span>
+        </button>
+    </div>
+    <div class="button-wrapper">
+        <button class="button" (click)="onClick.emit(800)">
+            <span class="button-content">Projects</span>
+        </button>
+    </div>
+    <div class="w-36"></div>
+    <div class="button-wrapper">
+        <button class="button" (click)="downloadCV()">
+            <span class="button-content">Download CV</span>
+        </button>
+    </div>
+    <div class="button-wrapper">
+        <button class="button" (click)="openContactDialog()">
+            <span class="button-content">Contact me</span>
         </button>
     </div>
 </div>
