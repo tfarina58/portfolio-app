@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+.intro-wrapper {
+    background: $background-color-light;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15vh 0;
+    font-size: 1.3rem;
+
+    .intro-row {
+        color: $text-color-light;
+    }
+}
