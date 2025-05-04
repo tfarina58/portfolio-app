@@ -1,0 +1,132 @@
+@import '../../../styles.scss';
+
+.timeline {
+  background: $background-color-light;
+  padding: 2vh 0;
+  width: 200%;
+
+  .information-row-up {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+
+  .information-row-down {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  line-height: 1.6;
+  border: 2px solid $button-default-color-light;
+  background: transparent;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  margin: 3.2vh 4vw;
+}
+  
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $text-color-light;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.3;
+  z-index: 1;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .para {
+  z-index: 1;
+  opacity: 0.8;
+  font-size: 1.1rem;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.para {
+  margin: 0.5vh 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  right: -5.2rem;
+  top: -5.2rem;
+  width: 10.4rem;
+  height: 10.4rem;
+  background: $button-default-color-light;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 50%;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  left: -5.2rem;
+  bottom: -5.2rem;
+  width: 10.4rem;
+  height: 10.4rem;
+  background: $button-default-color-light;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 50%;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover::before {
+  scale: 7;
+  opacity: 1;
+}
+
+.card:hover::after {
+  scale: 7;
+  opacity: 1;
+}
+
+.card:hover .content .heading {
+  color: #ffffff;
+}
+
+.card:hover .content .para {
+  color: #ffffff;
+}
+
+.card:hover {
+  box-shadow: 0rem 6px 13px rgba(0, 0, 0, 0.1),
+    0rem 24px 24px rgba(0, 0, 0, 0.09), 0rem 55px 33px rgba(0, 0, 0, 0.05),
+    0rem 97px 39px rgba(0, 0, 0, 0.01), 0rem 152px 43px rgba(0, 0, 0, 0);
+  border-color: $button-default-color-light;
+  scale: 1.05;
+}
+
+.line {
+  margin: 0 15vw;
+  border: 2px solid $button-default-color-light;
+  border-radius: 2px;
+}
+
+.subheader {
+  margin-bottom: 3vh;
+}

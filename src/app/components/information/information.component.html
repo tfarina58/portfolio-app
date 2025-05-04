@@ -1,1 +1,47 @@
-<p>information works!</p>
+<div id="timeline" class="timeline">
+  <!-- Educational row -->
+  <div class="information-row-up">
+    <div *ngFor="let event of events">
+      <ng-container *ngIf="!event.professional">
+        <div class="card">
+          <div class="content">
+            <span class="heading">{{ event.organization }}</span>
+            <span class="subheader">
+              {{ event.date.from | date : "MMM yyyy" }} - {{ event.date.to | date : "MMM yyyy" }}
+            </span>
+            <span class="para" *ngFor="let description of event.descriptions">
+              <li> {{ description }} </li>
+            </span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="event.professional">
+        <div class="card hidden"></div>
+      </ng-container>
+    </div>
+  </div>
+
+  <hr class="line" />
+
+  <!-- Professional row -->
+  <div class="information-row-down">
+    <div *ngFor="let event of events">
+      <ng-container *ngIf="event.professional">
+        <div class="card">
+          <div class="content">
+            <span class="heading">{{ event.organization }}</span>
+            <span class="subheader">
+              {{ event.date.from | date : "MMM yyyy" }} - {{ event.date.to | date : "MMM yyyy" }}
+            </span>
+            <span class="para" *ngFor="let description of event.descriptions">
+              <li> {{ description }} </li>
+            </span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!event.professional">
+        <div class="card hidden"></div>
+      </ng-container>
+    </div>
+  </div>
+</div>
