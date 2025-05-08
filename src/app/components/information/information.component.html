@@ -1,7 +1,13 @@
 <div id="timeline" class="timeline">
+
+  <h1 class="title">
+    <span class="text">&nbsp;&nbsp; Education and employment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span class="arrow">></span>
+  </h1>
+
   <!-- Educational row -->
   <div class="information-row-up">
-    <div *ngFor="let event of events">
+    <ng-container *ngFor="let event of events">
       <ng-container *ngIf="!event.professional">
         <div class="card">
           <div class="content">
@@ -18,7 +24,7 @@
       <ng-container *ngIf="event.professional">
         <div class="card hidden"></div>
       </ng-container>
-    </div>
+    </ng-container>
   </div>
 
   <div class="dot-container">
@@ -27,7 +33,7 @@
   <hr class="line" />
   <!-- Professional row -->
   <div class="information-row-down">
-    <div *ngFor="let event of events">
+    <ng-container *ngFor="let event of events">
       <ng-container *ngIf="event.professional">
         <div class="card">
           <div class="content">
@@ -44,6 +50,6 @@
       <ng-container *ngIf="!event.professional">
         <div class="card hidden"></div>
       </ng-container>
-    </div>
+    </ng-container>
   </div>
 </div>

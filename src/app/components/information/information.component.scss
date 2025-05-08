@@ -5,6 +5,22 @@
   padding: 2vh 0;
   width: 200%;
 
+  .title {
+    margin: 0 4vw;
+
+    .text {
+      color: $text-color-light;
+      text-decoration: underline;
+      text-decoration-color: $button-default-color-light;
+      text-decoration-thickness: 4px;
+    }
+
+    .arrow {
+      vertical-align: -15px;
+      color: $button-default-color-light;
+    }
+  }
+
   .information-row-up {
     display: flex;
     flex-direction: row;
@@ -30,7 +46,7 @@
   align-items: center;
   justify-content: center;
   width: 20vw;
-  padding: 2rem;
+  padding: 4vh 2vw;
   border-radius: 1.5rem;
   overflow: hidden;
   line-height: 1.6;
@@ -122,8 +138,8 @@
 }
 
   .line {
-    margin-left: 15vw;
-    margin-right: 56vw;
+    margin-left: 15.6vw;
+    margin-right: 53.1vw;
     border: 2px solid $button-default-color-light;
     border-radius: 2px;
     transform: translate(0, -1.9vh);
@@ -131,8 +147,8 @@
 
   .dot-container {
     display: flex;
-    margin-left: 15vw;
-    margin-right: 56vw;
+    margin-left: 15.6vw;
+    margin-right: 53.1vw;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;

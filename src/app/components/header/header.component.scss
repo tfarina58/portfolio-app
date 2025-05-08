@@ -63,16 +63,17 @@
 
 
         .button {
-            width: 7vw;
+            width: auto;
             height: 3rem;
             position: relative;
             overflow: hidden;
             border-radius: 1.5rem;
-            background: $background-color-light;
+            background: #F8F4E1;
             background-size: 400%;
-            color: $text-color-light;
-            border: 2px solid $button-default-color-light;
+            color: #232323;
+            border: 2px solid #feba17;
             cursor: pointer;
+            padding: 0 1vw;
 
             .button-content {
                 font-family: $primary-font;
