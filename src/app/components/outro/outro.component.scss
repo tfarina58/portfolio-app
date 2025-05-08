@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+
+.outro-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background: $background-color-light;
+    width: 100vw;
+
+    .outro-information {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        
+        border: 2px solid $button-default-color-light;
+        border-radius: 50px;
+        background: $background-color-light;
+        box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+
+        .outro-personal-details {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 2rem;
+            line-height: 2rem;
+
+            a {
+                color: $text-color-light;
+            }
+        }
+
+        .outro-image {
+            background-image: url(../../../../public/TF.jpg);
+            height: 16rem;
+            width: 13rem;
+            background-repeat: no-repeat;
+            margin: 2rem;
+            background-size: cover;
+            border-radius: 2rem;
+        }
+    }
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.spacer {
+    width: 7vw;
+}
+
+.info {
+    font-size: 1.1rem;
+    margin: 0.5vh 0;
+}
+
+.last-update {
+    margin: 7vh 0;
+}

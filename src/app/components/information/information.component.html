@@ -21,8 +21,10 @@
     </div>
   </div>
 
+  <div class="dot-container">
+    <div *ngFor="let event of events; let i = index;" class="dot" [ngStyle]=""></div>
+  </div>
   <hr class="line" />
-
   <!-- Professional row -->
   <div class="information-row-down">
     <div *ngFor="let event of events">

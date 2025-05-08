@@ -1,0 +1,11 @@
+@import '../styles.scss';
+
+.indent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    background: $background-color-light;
+}

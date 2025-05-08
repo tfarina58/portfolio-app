@@ -16,62 +16,71 @@ import { LoaderComponent } from './components/loader/loader.component';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   
-  title = 'portfolio-app';
+  title: string = 'portfolio-app';
+  
+  overHorizontalScrollZone: boolean = true;
+  underHorizontalScrollZone: boolean = false;
+  insideHorizontalScrollZone: boolean = false;
+
+  totalWidth: number = 0; // In vw units
+  offsetWidth: number = 0; // In vw units
 
   constructor() {}
 
   ngOnInit(): void {
+    let body: HTMLCollectionOf<HTMLBodyElement> = document.getElementsByTagName('body');
+    if (body == undefined || body.length == 0) return;
+
+    this.totalWidth = body.item(0)!.scrollWidth / window.innerWidth * 100;
+    this.offsetWidth = (body.item(0)!.scrollWidth - window.innerWidth) / window.innerWidth * 100;
+
     const element = document.getElementById("timeline");
     if (element == undefined) return;
-
-    let overHorizontalScrollZone: boolean = true;
-    let underHorizontalScrollZone: boolean = false;
-    let insideHorizontalScrollZone: boolean = false;
 
     window.addEventListener("wheel", (event) => {
       event.preventDefault();
       let alreadyCalledScrollTo: boolean = false;
 
-      if (overHorizontalScrollZone) {
+      if (this.overHorizontalScrollZone) {
         // Reaching element from top
         if (window.scrollY + event.deltaY >= element.offsetTop) {
             
-          overHorizontalScrollZone = false;
-          insideHorizontalScrollZone = true;
+          this.overHorizontalScrollZone = false;
+          this.insideHorizontalScrollZone = true;
           alreadyCalledScrollTo = true;
 
           window.scrollTo({left: 1, top: element.offsetTop, behavior: 'instant'});
         }
-      } else if (insideHorizontalScrollZone) {
+      } else if (this.insideHorizontalScrollZone) {
         // Leaving element to go top
         if (window.scrollX + event.deltaY <= 0) {
 
-          insideHorizontalScrollZone = false;
-          overHorizontalScrollZone = true;
+          this.insideHorizontalScrollZone = false;
+          this.overHorizontalScrollZone = true;
 
           window.scrollTo({left: 0, top: element.offsetTop, behavior: 'instant'});
 
         // Leaving element to go bottom
         } else if (window.scrollX + event.deltaY >= element.offsetWidth - window.innerWidth) {
 
-          insideHorizontalScrollZone = false;
-          underHorizontalScrollZone = true;
+          this.insideHorizontalScrollZone = false;
+          this.underHorizontalScrollZone = true;
 
           window.scrollTo({left: element.offsetWidth - window.innerWidth, top: element.offsetTop, behavior: 'instant'});
         }
-      } else if (underHorizontalScrollZone) {
+      } else if (this.underHorizontalScrollZone) {
         // Reaching element from bottom
         if (window.scrollY + element.offsetHeight + event.deltaY <= element.offsetTop + element.offsetHeight) {
 
-          underHorizontalScrollZone = false;
-          insideHorizontalScrollZone = true;
+          this.underHorizontalScrollZone = false;
+          this.insideHorizontalScrollZone = true;
           alreadyCalledScrollTo = true;
 
           window.scrollTo({left: element.offsetWidth + element.offsetWidth - 1, top: element.offsetTop, behavior: 'instant'});
         }
       }
 
-      if (insideHorizontalScrollZone && !alreadyCalledScrollTo)
+      if (this.insideHorizontalScrollZone && !alreadyCalledScrollTo)
         window.scrollTo({left: window.scrollX + event.deltaY, top: element.offsetTop, behavior: 'instant'});
       else
         window.scrollTo({left: window.scrollX, top: window.scrollY + event.deltaY, behavior: 'instant'});
@@ -80,7 +89,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      window.scrollTo({left: 0, top: 0, behavior: 'instant'});
+      window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
     }, 100);
   }
 
